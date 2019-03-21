@@ -44,21 +44,39 @@ group.add_argument('-e', '--ending',
 
 args = parser.parse_args()
 
+verbose_output = """
+Variables:
+----------------------
+algorithm: {0}
+file[s] to hash: {1}
+output file: {2}
+
+File,  Hash(hexdigest)
+----------------------"""
+
+# verbose output
 if args.verbose is True:
-    print('Variables:\n----------------------')
-    print('algorithm: ', args.algorithm)
-    print('file[s] to hash: ' + (
-        args.file if args.file else ('*.' + args.ending)))
-    print('\n\nFile,  Hash(hexdigest)\n----------------------')
+    verbose_output_string = \
+        verbose_output.format(
+          args.algorithm,
+          args.file if args.file else ('*.' + args.ending),
+          args.output if args.output else "[none]")
+    print(verbose_output_string)
 
 if args.output is not None:
-    print('output file: ', args.output)
     output_file = open(args.output, 'a+')
 
-files = glob.glob('**/*' + args.ending,
+# check if single file is present and readable
+if args.file:
+    try:
+        fh = open(args.file, 'r')
+    except FileNotFoundError:
+        print(args.file + ": not found")
+
+files = glob.glob('**/*.' + args.ending,
                   recursive=args.recursive) if args.ending else [args.file]
 
-
+# set hash algorithm method
 hasher_string = 'hashlib.' + args.algorithm
 hasher = eval(hasher_string + '()')
 
