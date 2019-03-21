@@ -5,6 +5,7 @@ Scripts and Tools useful for MoTrPAC
 ## hash_files.py
 
 - Simple file to output hash digests for files
+- Requires [Python 3.x](https://www.python.org)
 
 ```
 usage: hash_files.py [-h] -a {sha256,sha3_512,sha1,sha512,md5} [-o [OUTPUT]]
