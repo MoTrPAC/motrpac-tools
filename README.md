@@ -11,7 +11,7 @@ Scripts and Tools useful for MoTrPAC
 
        _outputs help info_
 
-  - `./hash_files.py --algorithm md5 -ending pdf -recursive -output output.txt -verbose`
+  - `./hash_files.py --algorithm md5 --ending pdf -recursive -output output.txt -verbose`
 
      _gets md5 hash for all files ending in `pdf` down a directory tree and writes the results to a file called `output.txt`_
 
