@@ -1,0 +1,20 @@
+[
+    {
+        "@vial_label": 11111,
+        "species": "rat",
+        "ext_date": "20190322",
+        "Lib_DNA_conc": 14.79
+    },
+    {
+        "@vial_label": 22222,
+        "species": "rat",
+        "ext_date": "20190521",
+        "Lib_DNA_conc": 15.22
+    },
+    {
+        "@vial_label": 33333,
+        "species": "human",
+        "ext_date": "20190122",
+        "Lib_DNA_conc": 0.22
+    }
+]
