@@ -11,9 +11,9 @@ Scripts and Tools useful for MoTrPAC
        _outputs help info_
 
 
-  - `./python make_manifest.py /path/to/upload/ manifest.csv
+  - `./python make_manifest.py /path/to/upload/ manifest.csv`
 
-     _makes manifest.cvs based on files in /path/to/upload/ _
+     _makes manifest.cvs based on files in /path/to/upload/_
 
 ```
 usage: make_manifest.py [-h] data_path output
