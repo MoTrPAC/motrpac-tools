@@ -3,7 +3,7 @@ Scripts and Tools useful for MoTrPAC
 
 ## make_manifest.py
 
-- Simple file to show how to make has digests. THIS DOES NOT MATCH THE CURRENT SPEC
+- Makes manifest for submission MoTrPAC files to  BIC
 - Requires [Python 3.x](https://www.python.org)
 - Examples:
     - `./make_manifest.py --help`
