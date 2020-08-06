@@ -18,9 +18,9 @@ def MoTrPACManifest(basepath, outfile):
 def main():
     parser = argparse.ArgumentParser(description='Creates manifest for submission to BIC: a comma separated file table of relative file paths and md5 sums.')
     parser.add_argument('data_path', 
-                        help='full base path of the data submission')
+                        help='Full path to folder containing all files for data submission')
     parser.add_argument('output', default='manifest.txt',
-                        help='path to the output file')
+                        help='Path to the output file')
     args = parser.parse_args()
     MoTrPACManifest(args.data_path, args.output)
 

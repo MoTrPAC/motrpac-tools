@@ -22,8 +22,8 @@ Creates manifest for submission to BIC: a comma separated file table of
 relative file paths and md5 sums.
 
 positional arguments:
-  data_path   full base path of the data submission
-  output      path to the output file
+  data_path   Full path to folder containing all files for data submission
+  output      Path to the output file
 
 optional arguments:
   -h, --help  show this help message and exit
