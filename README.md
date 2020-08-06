@@ -1,10 +1,38 @@
 # motrpac-tools
 Scripts and Tools useful for MoTrPAC
 
+## make_manifest.py
+
+- Makes manifest for submission MoTrPAC files to  BIC
+- Requires [Python 3.x](https://www.python.org)
+- Examples:
+    - `./make_manifest.py --help`
+
+       _outputs help info_
+
+
+  - `./python make_manifest.py /path/to/upload/ manifest.csv`
+
+     _makes `manifest.cvs` based on files in `/path/to/upload/`_
+
+```
+usage: make_manifest.py [-h] data_path output
+
+Creates manifest for submission to BIC: a comma separated file table of
+relative file paths and md5 sums.
+
+positional arguments:
+  data_path   Full path to folder containing all files for data submission
+  output      Path to the output file
+
+optional arguments:
+  -h, --help  show this help message and exit
+```
+
 
 ## hash_files.py
 
-- Simple file to output hash digests for files
+- Simple file to show how to make hash digests. _NOTE: THIS DOES NOT MATCH THE CURRENT SUBMISSION SPEC_
 - Requires [Python 3.x](https://www.python.org)
 - Examples:
     - `./hash_files.py --help`
