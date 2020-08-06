@@ -32,7 +32,7 @@ optional arguments:
 
 ## hash_files.py
 
-- Simple file to show how to make has digests. THIS DOES NOT MATCH THE CURRENT SPEC
+- Simple file to show how to make hash digests. _NOTE: THIS DOES NOT MATCH THE CURRENT SUBMISSION SPEC_
 - Requires [Python 3.x](https://www.python.org)
 - Examples:
     - `./hash_files.py --help`
