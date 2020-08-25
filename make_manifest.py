@@ -5,12 +5,20 @@ import argparse
 
 def MoTrPACManifest(basepath, outfile, sep=','):
     BLOCKSIZE = 65536
+    # Determine full paths
+    outfilepath_full = os.path.abspath(outfile)
+    
     lines = 0
     o = open(outfile, 'w')
     o.write("file_name%smd5\n" % sep)
     for path, dirnames, filenames in os.walk(basepath):
         for fn in filenames:
             fp = os.path.join(path, fn)
+            
+            filepath_full = os.path.abspath(fp)
+            if outfilepath_full == filepath_full:
+                # Do not hash the output file
+                continue
             hasher = hashlib.md5()
             with open(str(fp), 'rb') as afile:
                 buf = afile.read(BLOCKSIZE)
