@@ -13,7 +13,7 @@ Scripts and Tools useful for MoTrPAC
 
   - `./python make_manifest.py /path/to/upload/ manifest.csv`
 
-     _makes `manifest.cvs` based on files in `/path/to/upload/`_
+     _makes `manifest.csv` based on files in `/path/to/upload/`_
 
 ```
 usage: make_manifest.py [-h] data_path output
@@ -26,7 +26,8 @@ positional arguments:
   output      Path to the output file
 
 optional arguments:
-  -h, --help  show this help message and exit
+  -h, --help   Show this help message and exit
+  -q, --quiet  Do not show file paths as they are hashed
 ```
 
 

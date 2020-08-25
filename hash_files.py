@@ -78,10 +78,10 @@ files = glob.glob('**/*.' + args.ending,
 
 # set hash algorithm method
 hasher_string = 'hashlib.' + args.algorithm
-hasher = eval(hasher_string + '()')
 
 # create hash digests for file[s]
 for file in files:
+    hasher = eval(hasher_string + '()')
     with open(file, 'rb') as afile:
         buf = afile.read()
         hasher.update(buf)
