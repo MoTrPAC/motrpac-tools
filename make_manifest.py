@@ -4,6 +4,7 @@ import argparse
 
 
 def MoTrPACManifest(basepath, outfile, sep=','):
+    BLOCKSIZE = 65536
     lines = 0
     o = open(outfile, 'w')
     o.write("file_name%smd5\n" % sep)
@@ -12,8 +13,10 @@ def MoTrPACManifest(basepath, outfile, sep=','):
             fp = os.path.join(path, fn)
             hasher = hashlib.md5()
             with open(str(fp), 'rb') as afile:
-                buf = afile.read()
-                hasher.update(buf)
+                buf = afile.read(BLOCKSIZE)
+                while len(buf) > 0:
+                    hasher.update(buf)
+                    buf = afile.read(BLOCKSIZE)            
                 afile.close()
             o.write(sep.join([fp.replace(basepath, ""),
                               hasher.hexdigest()])+"\n")
