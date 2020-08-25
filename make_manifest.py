@@ -7,6 +7,8 @@ def MoTrPACManifest(basepath, outfile, sep=','):
     BLOCKSIZE = 65536
     # Determine full paths
     outfilepath_full = os.path.abspath(outfile)
+    basepath_full = os.path.abspath(basepath)
+    basepath_full_length = len(basepath_full)
     
     lines = 0
     o = open(outfile, 'w')
@@ -19,6 +21,13 @@ def MoTrPACManifest(basepath, outfile, sep=','):
             if outfilepath_full == filepath_full:
                 # Do not hash the output file
                 continue
+
+            relativepath = filepath_full[basepath_full_length:].lstrip(os.path.sep)
+            
+            # Change path separators to / if running on Windows
+            if os.path.sep != '/':
+                relativepath = relativepath.replace(os.path.sep, '/')
+                
             hasher = hashlib.md5()
             with open(str(fp), 'rb') as afile:
                 buf = afile.read(BLOCKSIZE)
@@ -26,8 +35,8 @@ def MoTrPACManifest(basepath, outfile, sep=','):
                     hasher.update(buf)
                     buf = afile.read(BLOCKSIZE)            
                 afile.close()
-            o.write(sep.join([fp.replace(basepath, ""),
-                              hasher.hexdigest()])+"\n")
+                           
+            o.write(sep.join([relativepath, hasher.hexdigest()]) + "\n")
             lines += 1
     o.close()
     if lines == 0:
