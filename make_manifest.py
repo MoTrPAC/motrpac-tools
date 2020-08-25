@@ -7,10 +7,10 @@ def MoTrPACManifest(basepath, outfile, sep=','):
     lines = 0
     o = open(outfile, 'w')
     o.write("file_name%smd5\n" % sep)
-    hasher = hashlib.md5()
     for path, dirnames, filenames in os.walk(basepath):
         for fn in filenames:
             fp = os.path.join(path, fn)
+            hasher = hashlib.md5()
             with open(str(fp), 'rb') as afile:
                 buf = afile.read()
                 hasher.update(buf)
