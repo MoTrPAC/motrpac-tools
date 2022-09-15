@@ -10,10 +10,11 @@ Scripts and Tools useful for MoTrPAC
 
        _outputs help info_
 
+    - `./python make_manifest.py /path/to/upload/ file_manifest_YYYYMMDD.csv`
 
-  - `./python make_manifest.py /path/to/upload/ manifest.csv`
-
-     _makes `manifest.csv` based on files in `/path/to/upload/`_
+       _makes `manifest.csv` based on files in `/path/to/upload/`_
+  
+***Output file***: for Motrpac data submissions, the output must be named: `file_manifest_DATE.csv`. The format of`DATE` must be `YYYYMMDD` (`YYYY` = year, `MM` = month, `DD` = day)
 
 ```
 usage: make_manifest.py [-h] data_path output
